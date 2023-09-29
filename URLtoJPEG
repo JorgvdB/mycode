@@ -5,8 +5,10 @@ import pandas as pd
 df = pd.read_excel('Pictures.xlsx')
 
 for index, row in df.iterrows():
-    image_url = row['Image Location']  
-    file_name = row['File Name']  
+    image_url = row['Image Location']  # Replace 'URL_COLUMN' with the actual column name containing URLs
+    new_file_name = row['File Name']  # Replace 'NEW_FILENAME_COLUMN' with the actual column name for new filenames
+    file_name = new_file_name + '.jpg'  # Add the ".jpg" extension
+    
     print(f"Downloading file from URL: {image_url}")
 
     r = requests.get(image_url, stream=True)
